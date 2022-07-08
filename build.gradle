@@ -84,6 +84,15 @@ android {
 dependencies {
 }
 
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "https://jitpack.io"
+        }
+    }
+}
 publishing {
     publications {
         opencvQrCodeParserAar(MavenPublication) {
