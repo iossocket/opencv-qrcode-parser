@@ -93,15 +93,4 @@ publishing {
             artifact("build/outputs/aar/opencv-qrcode-parser-release.aar")
         }
     }
-
-    repositories {
-        maven {
-            name "GitHubPackages"
-            url "https://maven.pkg.github.com/iossocket/opencv-qrcode-parser"
-            credentials {
-                username githubUsername
-                password githubToken
-            }
-        }
-    }
 }
