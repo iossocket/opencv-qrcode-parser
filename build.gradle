@@ -1,16 +1,20 @@
 buildscript {
-    // The Android Gradle plugin is only required when opening the android folder stand-alone.
-    // This avoids unnecessary downloads and potential conflicts when the library is included as a
-    // module dependency in an application project.
-    if (project == rootProject) {
-        repositories {
-            google()
-            mavenCentral()
-        }
+    repositories {
+        google()
+        mavenCentral()
+    }
 
-        dependencies {
-            //noinspection GradleDependency
-            classpath("com.android.tools.build:gradle:4.1.3")
+    dependencies {
+        classpath("com.android.tools.build:gradle:4.1.2")
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "https://jitpack.io"
         }
     }
 }
@@ -23,7 +27,7 @@ def openCVersionCode = ((4 * 100 + 5) * 100 + 4) * 10 + 0
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.0"
+    buildToolsVersion "30.0.2"
 
     defaultConfig {
         minSdkVersion 21
@@ -79,22 +83,12 @@ android {
 dependencies {
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        maven {
-            url "https://jitpack.io"
-        }
-    }
-}
 publishing {
     publications {
-        opencvQrCodeParserAar(MavenPublication) {
+        release(MavenPublication) {
             groupId "com.iossocket"
             version "4.5.4"
             artifactId "opencv-qrcode-parser"
-            artifact("build/outputs/aar/opencv-qrcode-parser-release.aar")
         }
     }
 }
