@@ -82,13 +82,15 @@ android {
 
 dependencies {
 }
-
-publishing {
-    publications {
-        release(MavenPublication) {
-            groupId "com.iossocket"
-            version "4.5.4"
-            artifactId "opencv-qrcode-parser"
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId "com.iossocket"
+                version "4.5.4"
+                artifactId "opencv-qrcode-parser"
+            }
         }
     }
 }
