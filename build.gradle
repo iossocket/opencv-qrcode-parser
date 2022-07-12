@@ -23,7 +23,7 @@ def openCVersionCode = ((4 * 100 + 5) * 100 + 4) * 10 + 0
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "31.0.0"
+    buildToolsVersion "30.0.0"
 
     defaultConfig {
         minSdkVersion 21
@@ -73,11 +73,6 @@ android {
             res.srcDirs = ['res']
             manifest.srcFile 'AndroidManifest.xml'
         }
-    }
-
-    repositories {
-        google()
-        mavenCentral()
     }
 }
 
